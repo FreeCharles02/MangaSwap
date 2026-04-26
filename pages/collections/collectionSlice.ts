@@ -11,7 +11,7 @@ export interface CollectionState {
 const initialState: CollectionState = {
     Items: null,
     Name: null, 
-    Type: null
+    Type: null,
 }
 
 export const collectionSlice = createSlice({
@@ -21,11 +21,8 @@ export const collectionSlice = createSlice({
       addToCollection: (state, action: PayloadAction<MangaState>) => {
         state.Items.push(action.payload)
       },
-      addName: (state, action: PayloadAction<string>) => {
-        state.Name = action.payload
-      },
-      addType: (state, action: PayloadAction<string>) => {
-        state.Type = action.payload
+      editCollection: (state, action: PayloadAction<string>) => {
+        state[action.type] = action.payload
       },
       addCollection: (state) => {
         const savedCollection = {...state}

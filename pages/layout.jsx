@@ -1,4 +1,4 @@
-import Navbar from './main/navbar'
+import NavbarMain from './main/navbarMain'
 import Footer from './main/footnote'
 import { useSession, signIn, signOut } from "next-auth/react"
 import Navbar2 from './other/navbar2'
@@ -14,7 +14,7 @@ export default function Layout({ children }) {
  // if (status === "authenticated") {
     return (
       <div>
-          <Navbar />
+          <NavbarMain />
              <main>{children}</main>
           <Footer />
         </div>

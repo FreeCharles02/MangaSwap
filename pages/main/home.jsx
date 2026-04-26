@@ -9,12 +9,12 @@ import { Spacer } from '@nextui-org/react';
 import styles from "./main.module.css";
 import TopBanner from "../other/TopBanner";
 import CallToAction from "../other/CallToAction";
-
+import SideBar from "./sidebar";
 
    const Home = () => {
         return(
-            <>
-            <TopBanner />
+            <div className="row d-flex">
+            <SideBar />
             <div className={styles.swiperHeader}>
                 <Spacer y={2} />
             <h4> 
@@ -38,7 +38,7 @@ import CallToAction from "../other/CallToAction";
         </div>
         </div>
         <CallToAction />
-        </>
+        </div>
         );
         
     }

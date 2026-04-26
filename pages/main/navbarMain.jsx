@@ -1,10 +1,7 @@
 import React, { useState, useRef, useCallback } from "react"
 import Link from "next/link";
-import useMangaSearch from '../useMangaSearch'
-import localFont from 'next/font/local'
-import styles from './navbar.module.css'
-
-const Navbar = () => {
+import styles from "./navbarMain.module.css"
+const NavbarMain = () => {
   return (  
 <>   
   <div className={styles.navBar}>
@@ -63,4 +60,4 @@ const Navbar = () => {
       </>
     )
 }
-export default Navbar;
+export default NavbarMain;
