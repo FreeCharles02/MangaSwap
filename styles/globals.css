@@ -59,10 +59,27 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: Komika Slick;
+    src: url("./font\ folder/komika slick italic.otf");
+    font-weight: normal;
+    font-style: italic;
+}
 
+@font-face {
+    font-family: Komika Slim;
+    src: url("./font folder/komika.slim-italic.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Komika Jam;
+    src: url("./font\ folder/komika.jam.otf");
+}
 
 h1, h2, h3 {
-    font-family: SugarBomb !important;
+    font-family: Komika Jam !important;
 }
 
 h4, h5, h6 {
@@ -70,7 +87,8 @@ h4, h5, h6 {
 }
 
 p {
-    font-family: Yeyey !important;
+    font-family: Yeyey
+     !important;
 }
 
 

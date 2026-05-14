@@ -14,7 +14,7 @@ import SideBar from "./sidebar";
    const Home = () => {
         return(
             <div className="row d-flex">
-            <SideBar />
+            
             <div className={styles.swiperHeader}>
                 <Spacer y={2} />
             <h4> 

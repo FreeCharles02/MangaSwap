@@ -4,7 +4,7 @@ import { useSession, signIn, signOut } from "next-auth/react"
 import Navbar2 from './other/navbar2'
 import localFont from 'next/font/local'
 import 'bootstrap/dist/css/bootstrap.min.css'
-
+import MainBar from './main/sidebar'
 
 
 export default function Layout({ children }) {
@@ -13,9 +13,14 @@ export default function Layout({ children }) {
 
  // if (status === "authenticated") {
     return (
-      <div>
+      <div className='row d-flex'>
+        <div className='col-lg-2'>
+         <MainBar />
+        </div>
+        <div className='col-lg-10'>
           <NavbarMain />
              <main>{children}</main>
+        </div>
           <Footer />
         </div>
     )
