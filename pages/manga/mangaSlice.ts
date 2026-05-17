@@ -3,6 +3,7 @@ import { Double } from 'mongodb'
 import { RootState } from '../store'
 import axios from 'axios'
 import { Manga } from '../types/manga'
+import { use } from 'react'
 
 export interface MangaState {
     mangaObject: Manga;
@@ -59,6 +60,14 @@ export const setManga = createAsyncThunk('manga/getManga', async (foundManga: Ma
     addPrice(foundManga.mangaObject.price)
     addDesc(foundManga.mangaObject.description)
     addImage(foundManga.mangaObject.condition)
+})
+
+export const getUserVault = createAsyncThunk('manga/getUserVault', async(listObject : MangaState) => {
+    let userVault = []    
+    await axios.get('http://localhost:3000/api/route').then((response) => {
+        userVault = response.data
+ });
+    listObject.mangaList = userVault;
 })
 
 export const {addName, addCondition, addDesc, addPrice, getCurrentManga, addImage } = mangaSlice.actions
