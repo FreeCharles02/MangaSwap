@@ -13,12 +13,12 @@ export default function Layout({ children }) {
 
  // if (status === "authenticated") {
     return (
-      <div className='row d-flex'>
+      <div className='row'>
         <div className='col-lg-2'>
          <MainBar />
         </div>
         <div className='col-lg-10'>
-          <NavbarMain />
+          { /*<NavbarMain /> */}
              <main>{children}</main>
         </div>
           <Footer />

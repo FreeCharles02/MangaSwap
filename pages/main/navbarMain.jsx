@@ -5,15 +5,7 @@ const NavbarMain = () => {
   return (  
 <>   
   <div className={styles.navBar}>
-    <div className="row">
-      <Link className={styles.navbarTitle} href='/'>
-      <h1>
-      MangaSwap
-      </h1>
-      </Link>
-      
-      
-      
+    <div className="row">   
       <div className={`row ${styles.navbarLinks}`}>
       <div className={`col-lg-3`}>
       <ul className={styles.navbarList}>

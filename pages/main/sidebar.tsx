@@ -5,7 +5,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 const MainBar = () => {
   const {data: session} = useSession();
     return (
-<Sidebar>
+<Sidebar className="h-100">
   <h1>
     Mangakure
   </h1>

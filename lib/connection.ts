@@ -52,7 +52,7 @@ export const getAllManga = async () => {
   const col = await db.collection("MangaGraphics")
   const allManga = await col.find({}).toArray();
   console.log(allManga)
-  return allManga;
+return allManga;
 }
 
 export default client;
