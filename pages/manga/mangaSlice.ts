@@ -62,12 +62,12 @@ export const setManga = createAsyncThunk('manga/getManga', async (foundManga: Ma
     addImage(foundManga.mangaObject.condition)
 })
 
-export const getUserVault = createAsyncThunk('manga/getUserVault', async(listObject : MangaState) => {
+export const getUserVault = createAsyncThunk('manga/getUserVault', async(state) => {
     let userVault = []    
     await axios.get('http://localhost:3000/api/route').then((response) => {
         userVault = response.data
  });
-    listObject.mangaList = userVault;
+  //  this.state.mangaList = userVault;
 })
 
 export const {addName, addCondition, addDesc, addPrice, getCurrentManga, addImage } = mangaSlice.actions
