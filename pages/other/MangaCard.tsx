@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
-const MangaCard = (name: string, price: number) => {
+const MangaCard = ({name, price}: {name: string; price: string}) => {
  return (
     <div>
       <Card className="relative mx-auto w-full max-w-sm pt-0">

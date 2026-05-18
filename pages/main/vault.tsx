@@ -1,17 +1,26 @@
 import MangaCard from "../other/MangaCard";
-import { UseSelector } from "react-redux";
-import { getUserVault } from "../manga/mangaSlice";
+import { useAppDispatch, useAppSelector } from "../hook";
 import { useEffect } from "react";
+import { getUserVault } from "../manga/mangaSlice";
+import { RootState } from "../store";
+import { Manga } from "../types/manga";
 
 const Vault = () => {
+    const dispatch = useAppDispatch();
     useEffect(() => {
-        getUserVault();
-    },[])
+        dispatch(getUserVault());
+    },[dispatch])
+    const mangaVaultItems = useAppSelector((state) => state.manga.mangaList) as Manga[];
     return(
         <div className="row">
+            {mangaVaultItems?.map((manga, key) => (
 
-        </div>
-    )
+                <MangaCard name={manga.name} price={manga.price} key={key} /> 
+            ))}       
+            </div>
+        )
 }
 
 export default Vault;
+
+

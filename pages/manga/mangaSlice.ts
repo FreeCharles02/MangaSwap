@@ -18,7 +18,7 @@ const initialState: MangaState = {
 
 export const saveManga = createAsyncThunk('manga/saveManga', async (_, { getState }) => {
     const state = getState() as RootState;
-    const savedManga = state.manga
+    const savedManga = state.manga.mangaObject
     await axios.post('http://localhost:3000/api/manga', savedManga)
     .then((response) => {
         console.log(response.data)
@@ -27,6 +27,14 @@ export const saveManga = createAsyncThunk('manga/saveManga', async (_, { getStat
 
 
 
+export const getUserVault = createAsyncThunk<Manga[], void>(
+    'manga/getUserVault', 
+    async () => {
+        const response = await axios.get('http://localhost:3000/api/route');
+        console.log(response.data)
+        return response.data; 
+    }
+);
 
 export const mangaSlice = createSlice({
     name: "manga",
@@ -50,7 +58,13 @@ export const mangaSlice = createSlice({
        },
        addImage: (state, action: PayloadAction<string>) => {
             state.mangaObject.image = action.payload
-       }
+       },  
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(getUserVault.fulfilled, (state, action: PayloadAction<Manga[]>) => {
+                state.mangaList = action.payload
+            })
     }
 })
 
@@ -62,13 +76,6 @@ export const setManga = createAsyncThunk('manga/getManga', async (foundManga: Ma
     addImage(foundManga.mangaObject.condition)
 })
 
-export const getUserVault = createAsyncThunk('manga/getUserVault', async(state) => {
-    let userVault = []    
-    await axios.get('http://localhost:3000/api/route').then((response) => {
-        userVault = response.data
- });
-  //  this.state.mangaList = userVault;
-})
 
 export const {addName, addCondition, addDesc, addPrice, getCurrentManga, addImage } = mangaSlice.actions
 

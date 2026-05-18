@@ -3,11 +3,11 @@ import { run, getAllManga } from '../../lib/connection'
 import { all } from 'axios';
 
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
     try {
-        run();
-        const allManga = getAllManga();
+        await run();
+        const allManga = await getAllManga();
         console.log(getAllManga())
         res.status(200).send(allManga)
     } catch {

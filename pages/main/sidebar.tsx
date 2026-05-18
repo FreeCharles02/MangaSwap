@@ -13,7 +13,11 @@ const MainBar = () => {
     <SubMenu label="Profile">
       {session ? 
       <>
-      <MenuItem> Vault </MenuItem>
+      <MenuItem>
+      <Link href="/main/vault">
+      Vault
+      </Link> 
+       </MenuItem>
       <MenuItem> Cart </MenuItem>
       <MenuItem onClick={() => signOut()}> Logout </MenuItem>  
       </>
